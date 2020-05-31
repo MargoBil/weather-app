@@ -1,5 +1,5 @@
 .quotes {
-  height: 155px;
+  // height: 155px;
   margin-bottom: 15px;
   margin-top: 15px;
   display: flex;
@@ -9,28 +9,17 @@
   background-color: transparent;
   border-radius: 25px 25px 25px 25px;
 
-  &__symbol {
-    font-size: 70px;
-    font-weight: 400;
-    color: #797977;
-    opacity: 0.6;
-    position: absolute;
-    top: 5px;
-    right: 0px;
-    @media only screen and (min-width: 1280px) {
-      top: -35px;
-    right: 0px;
-    }
-  }
-
   &__box {
     text-align: right;
     vertical-align: middle;
     margin-right: 5px;
     @media only screen and (min-width: 1280px) {
-      display: inline-block;
-       height: 275px;
-       width: 492px;
+    display: inline-block;
+    width: 492px;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
     }
   }
   &__text {
@@ -46,6 +35,7 @@
     @media only screen and (min-width: 1280px) {
        width: 485px;
        padding-right: 30px;
+       margin-right: 0px;
     }
   }
   &__author{
@@ -62,6 +52,8 @@
 
   @media only screen and (min-width: 1280px) {
     display: inline-block;
-    margin-left: 70px;
+    margin-left: 148px;
+    position: relative;
+    top: -55px;
   }
 }
