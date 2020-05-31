@@ -681,7 +681,7 @@ async function getWeatherFiveDays (cityName, key) {
 
 function handlerMainInputSearch (event) {
   cityName = event.target.value;
-  if (event.code === 'Enter' || event.code === '41' ) {
+  if (event.code === '13' ) {
     event.preventDefault ();
     getDefaultStyle ();
     cityName = event.target.value;
