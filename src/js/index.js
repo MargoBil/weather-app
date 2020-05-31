@@ -681,28 +681,26 @@ async function getWeatherFiveDays (cityName, key) {
 
 function handlerMainInputSearch (event) {
   cityName = event.target.value;
-  if (event.code === 'Enter') {
+  if (event.code === 'Enter' || event.code === '41' ) {
     event.preventDefault ();
     getDefaultStyle ();
     cityName = event.target.value;
     event.target.value = cityName[0].toUpperCase () + cityName.slice (1);
     renderWeather (cityName, key);
     getNewBackground ();
-  } else {
-    refs.mainInput.addEventListener('touchstart', handlerMainInputSearchTouch);
   }
 }
 
-function handlerMainInputSearchTouch (event) {
-  console.log(event);
-  cityName = event.target.value;
-    event.preventDefault ();
-    getDefaultStyle ();
-    cityName = event.target.value;
-    event.target.value = cityName[0].toUpperCase () + cityName.slice (1);
-    renderWeather (cityName, key);
-    getNewBackground ();
-}
+// function handlerMainInputSearchTouch (event) {
+//   console.log(event);
+//   cityName = event.target.value;
+//     event.preventDefault ();
+//     getDefaultStyle ();
+//     cityName = event.target.value;
+//     event.target.value = cityName[0].toUpperCase () + cityName.slice (1);
+//     renderWeather (cityName, key);
+//     getNewBackground ();
+// }
 
 function getDefaultStyle () {
   refs.btnOneDays.classList.add ('click-btn-js');
