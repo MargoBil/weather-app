@@ -617,7 +617,6 @@ function handlerBtnOfOneDays (event) {
 }
 
 function renderWeather (cityName, key) {
-  
   getWeather (cityName, key)
     .then (data => {
       const objectTempr = {
@@ -669,7 +668,7 @@ async function getWeather (cityName, key) {
 async function getWeatherFiveDays (cityName, key) {
   try {
     const response = await fetch (
-      `http://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=metric&appid=${key}&lang=ua`
+      `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=metric&appid=${key}&lang=ua`
     );
     if (response.ok) {
       const data = await response.json ();
