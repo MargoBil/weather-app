@@ -1,0 +1,67 @@
+.quotes {
+  height: 155px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-color: transparent;
+  border-radius: 25px 25px 25px 25px;
+
+  &__symbol {
+    font-size: 70px;
+    font-weight: 400;
+    color: #797977;
+    opacity: 0.6;
+    position: absolute;
+    top: 5px;
+    right: 0px;
+    @media only screen and (min-width: 1280px) {
+      top: -35px;
+    right: 0px;
+    }
+  }
+
+  &__box {
+    text-align: right;
+    vertical-align: middle;
+    margin-right: 5px;
+    @media only screen and (min-width: 1280px) {
+      display: inline-block;
+       height: 275px;
+       width: 492px;
+    }
+  }
+  &__text {
+    font-size: 14px;
+    color: $primary-color-input;
+    font-style: italic;
+    line-height: 21px;
+    @media only screen and (min-width: 768px) {
+      font-size: 22px;
+      line-height: 32px;
+      padding-bottom: 9px;
+    }
+    @media only screen and (min-width: 1280px) {
+       width: 485px;
+       padding-right: 30px;
+    }
+  }
+  &__author{
+  font-size: 18px;
+  color: $primary-color-input;
+  line-height: 32px;
+  @media only screen and (min-width: 1280px) {
+    padding-right: 30px;
+ }
+  }
+  @media only screen and (min-width: 768px) {
+    width: 492px;
+  }
+
+  @media only screen and (min-width: 1280px) {
+    display: inline-block;
+    margin-left: 70px;
+  }
+}

@@ -1,0 +1,575 @@
+.display-none-js {
+  display: none;
+}
+
+.display-opasity-js {
+  opacity: 0;
+}
+
+.current-information-five-days {
+  border-radius: 35px 35px 35px 35px;
+  border: none;
+  background-color: $primary-color-box;
+  padding-right: 30px;
+  padding-left: 30px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  min-height: 270px;
+
+  &__name-city {
+    color: $primary-color-input;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+
+    @media only screen and (min-width: 1280px) {
+      width: 160px;
+      display: inline-block;
+    }
+  }
+
+  &__name-box {
+    @media only screen and (min-width: 768px) {
+      position: relative;
+      transform: translate(0px, -55px);
+    }
+
+    @media only screen and (min-width: 1280px) {
+      transform: translate(0px, -76px);
+      width: 160px;
+      display: inline-block;
+      left: 450px;
+    }
+  }
+
+  &__item {
+    &:hover .current-information-five-days__name-item {
+      color: $color-tempr-value;
+    }
+  }
+
+  &__list-days {
+    padding-left: 0px;
+    position: relative;
+    padding-left: 0px;
+    margin-top: 10px;
+    width: 220px;
+    height: 160px;
+    overflow: hidden;
+
+    @media only screen and (min-width: 768px) {
+      height: 187px;
+      width: 550px;
+    }
+
+    @media only screen and (min-width: 1280px) {
+      height: 245px;
+      width: 1000px;
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+  }
+
+  &__item {
+    position: absolute;
+    list-style: none;
+    width: 73px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: none;
+
+    border-radius: 12px 12px 12px 12px;
+
+    &:nth-child(1) {
+      transform: translateX(0px);
+    }
+
+    &:nth-child(2) {
+      transform: translateX(73px);
+    }
+
+    &:nth-child(3) {
+      transform: translateX(146px);
+    }
+
+    transform: translateX(219px);
+
+    @media only screen and (min-width: 768px) {
+      width: 80px;
+
+      &:nth-child(1) {
+        transform: translateX(-110px);
+      }
+
+      &:nth-child(2) {
+        transform: translateX(0px);
+      }
+
+      &:nth-child(3) {
+        transform: translateX(110px);
+      }
+
+      &:nth-child(4) {
+        transform: translateX(220px);
+      }
+
+      &:nth-child(5) {
+        transform: translateX(330px);
+      }
+
+      &:nth-child(6) {
+        transform: translateX(440px);
+      }
+    }
+
+    @media only screen and (min-width: 1280px) {
+      width: 103px;
+
+      &:nth-child(1) {
+        transform: translateX(-200px);
+      }
+
+      &:nth-child(2) {
+        transform: translateX(0px);
+      }
+
+      &:nth-child(3) {
+        transform: translateX(200px);
+      }
+
+      &:nth-child(4) {
+        transform: translateX(400px);
+      }
+
+      &:nth-child(5) {
+        transform: translateX(600px);
+      }
+
+      &:nth-child(6) {
+        transform: translateX(800px);
+      }
+    }
+  }
+
+  &__name-item {
+    display: block;
+    text-align: center;
+    width: 73px;
+    font-size: 12px;
+    color: $primary-color-white-opacity;
+    margin-bottom: 10px;
+
+    @media only screen and (min-width: 768px) {
+      font-size: 14px;
+    }
+
+    @media only screen and (min-width: 1280px) {
+      font-size: 18px;
+      width: 103px;
+    }
+  }
+
+  &__date-name {
+    margin-right: 3px;
+  }
+
+  &__date-name,
+  &__month-name {
+    font-size: 16px;
+    color: $primary-color-input;
+
+    @media only screen and (min-width: 768px) {
+      font-size: 18px;
+    }
+
+    @media only screen and (min-width: 1280px) {
+      font-size: 25px;
+    }
+  }
+
+  &__name-min,
+  &__name-max {
+    font-size: 12px;
+    font-weight: 400;
+    color: $primary-color-white-opacity;
+
+    @media only screen and (min-width: 768px) {
+      font-size: 14px;
+    }
+
+    @media only screen and (min-width: 768px) {
+      font-size: 18px;
+    }
+  }
+
+  &__tempr-value {
+    color: $color-tempr-value;
+    font-weight: 400;
+
+    @media only screen and (min-width: 768px) {
+      font-size: 18px;
+    }
+
+    @media only screen and (min-width: 1280px) {
+      font-size: 25px;
+    }
+  }
+
+  &__more-info {
+    font-size: 12px;
+    color: $primary-color-text;
+
+    &:hover {
+      color: $primary-color-input;
+    }
+
+    @media only screen and (min-width: 768px) {
+      font-size: 14px;
+    }
+
+    @media only screen and (min-width: 1280px) {
+      font-size: 15px;
+    }
+  }
+
+  &__btn-prev,
+  &__btn-next,
+  &__temperature-btn-tempr-prev,
+  &__temperature-btn-tempr-next,
+  &__chart-btn-down {
+    background-color: transparent;
+    border: none;
+    border-radius: 50% 50% 50% 50%;
+    color: $color-btn-list-five-days;
+    font-weight: bold;
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+    outline: none;
+
+    &:hover {
+      color: $primary-color-input;
+    }
+  }
+
+  &__btn-box,
+  &__temperature-btn-box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__temperature-btn-box {
+    @media only screen and (min-width: 1280px) {
+      display: none;
+    }
+  }
+
+  &__min-tempr,
+  &__max-tempr {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  &__pressure-value,
+  &__humidity-value,
+  &__wind-speed-value {
+    position: absolute;
+    left: 50px;
+    font-size: 14px;
+    color: $primary-color-white-opacity;
+  }
+
+  &__pressure-value {
+    &::before {
+      content: '';
+      width: 24px;
+      height: 20px;
+      position: absolute;
+      background-image: url('./../images/icons/pressure-mb.png');
+      left: -33px;
+    }
+  }
+
+  &__humidity-value {
+    &::before {
+      content: '';
+      width: 24px;
+      height: 20px;
+      position: absolute;
+      background-image: url('./../images/icons/humidity-mb.png');
+      left: -33px;
+    }
+  }
+
+  &__wind-speed-value {
+    &::before {
+      content: '';
+      width: 24px;
+      height: 20px;
+      position: absolute;
+      background-image: url('./../images/icons/wind-speed-mb.png');
+      left: -33px;
+    }
+  }
+
+  &__list-temperature {
+    padding-left: 0px;
+    height: 220px;
+    width: 250px;
+    left: -15px;
+    position: relative;
+    overflow: hidden;
+
+    @media only screen and (min-width: 768px) {
+      width: 550px;
+      height: 240px;
+    }
+
+    @media only screen and (min-width: 1280px) {
+      width: 1000px;
+    }
+  }
+
+  &__temperature-range {
+    @media only screen and (min-width: 768px) {
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+  }
+
+  &__item-tempr-range {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    width: 120px;
+    margin-right: 10px;
+    position: absolute;
+    padding-top: 15px;
+    border: 1px solid $primary-color-white-opasity-border;
+    border-radius: 25px 25px 25px 25px;
+
+    &:nth-child(1) {
+      transform: translateX(0px);
+    }
+
+    &:nth-child(2) {
+      transform: translateX(130px);
+    }
+
+    &:nth-child(3) {
+      transform: translateX(260px);
+    }
+
+    &:nth-child(4) {
+      transform: translateX(390px);
+    }
+
+    &:nth-child(5) {
+      transform: translateX(520px);
+    }
+
+    transform: translateX(650px);
+
+    @media only screen and (min-width: 768px) {
+      &:nth-child(1) {
+        transform: translateX(0px);
+      }
+
+      &:nth-child(2) {
+        transform: translateX(130px);
+      }
+
+      &:nth-child(3) {
+        transform: translateX(260px);
+      }
+
+      &:nth-child(4) {
+        transform: translateX(390px);
+      }
+
+      &:nth-child(5) {
+        transform: translateX(520px);
+      }
+
+      transform: translateX(650px);
+    }
+
+    @media only screen and (min-width: 1280px) {
+      &:nth-child(1) {
+        transform: translateX(11.5px);
+      }
+
+      &:nth-child(2) {
+        transform: translateX(-160px);
+      }
+
+      &:nth-child(3) {
+        transform: translateX(154.5px);
+      }
+
+      &:nth-child(4) {
+        transform: translateX(297.5px);
+      }
+
+      &:nth-child(5) {
+        transform: translateX(440.5px);
+      }
+
+      &:nth-child(6) {
+        transform: translateX(583.5px);
+      }
+
+      &:nth-child(7) {
+        transform: translateX(726.5px);
+      }
+
+      &:nth-child(8) {
+        transform: translateX(869.5px);
+      }
+    }
+  }
+
+  &__item-tempr-time {
+    font-size: 12px;
+    color: $primary-color-white-opacity;
+    display: block;
+    width: 120px;
+    text-align: center;
+    margin-bottom: 10px;
+
+  }
+
+  &__main-icon {
+    display: block;
+    text-align: center;
+    @extend %margin-center;
+  }
+
+  &__pressure-box,
+  &__humidity-box,
+  &__wind-speed-box {
+    width: 120px;
+    display: block;
+    text-align: right;
+    position: relative;
+    height: 30px;
+  }
+
+  &__btn-box-close {
+    width: 20px;
+    height: 20px;
+    border: none;
+    border-radius: 50% 50% 50% 50%;
+    color: $primary-color-white-opacity;
+    outline: none;
+    background-color: $primary-color-text;
+    font-size: 10px;
+    position: relative;
+    transform: translate(210px, -20px);
+
+    @media only screen and (min-width: 768px) {
+      transform: translate(520px, -10px);
+    }
+
+    @media only screen and (min-width: 1280px) {
+      transform: translate(950px, -10px);
+    }
+  }
+
+  &__chart-btn-link {
+    font-size: 14px;
+    color: $color-tempr-value;
+  }
+
+  &__chart-btn {
+    display: block;
+    width: 90px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    @extend %margin-center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  @media only screen and (min-width: 768px) {
+    min-height: 262px;
+    width: 608px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-top: 25px;
+  }
+
+  @media only screen and (min-width: 1280px) {
+    margin-top: 0px;
+    width: 1060px;
+    min-height: 310px;
+  }
+
+  &__btn-box {
+    @media only screen and (min-width: 768px) {
+      display: none;
+    }
+  }
+
+  &__chart {
+    border-radius: 35px 35px 35px 35px;
+    border: none;
+    background-color: $primary-color-box;
+
+    @media only screen and (min-width: 768px) {
+      width: 608px;
+    }
+
+    @media only screen and (min-width: 1280px) {
+      width: 1060px;
+    }
+
+    &-canvas {
+      padding: 10px;
+      overflow-x: auto;
+      margin: 10px;
+      margin-bottom: 35px;
+
+      @media only screen and (min-width: 768px) {
+        margin-bottom: 120px;
+        padding: 20px;
+      }
+    }
+  }
+
+  &__icon {
+    @media only screen and (min-width: 1280px) {
+      display: block;
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+  }
+
+}
+
+.chart-canvas {
+  width: 550px;
+  height: 420px;
+
+  @media only screen and (min-width: 768px) {
+    width: 550px;
+    height: 370px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media only screen and (min-width: 1280px) {
+    width: 778px;
+    height: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

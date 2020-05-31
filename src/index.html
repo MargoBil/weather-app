@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Weather App</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <div class="wrapper">
+    <section class="search-box">
+      <div class="container">
+        <form class="input-box">
+          <input type="text" class="input-box__input" placeholder="Enter the city">
+          <img class="input-box__img--search" src="images/icons/baseline_location_searching_black_mb-min.png"
+            width="18px" alt="input-icons" />
+        </form>
+      </div>
+    </section>
+    <section class="current-weather">
+      <div class="current-temperature-today container">
+      </div>
+      <div class="buttons-box container">
+        <button class="button buttons-box__one-day click-btn-js">TODAY</button>
+        <button class="button buttons-box__five-days">5 DAYS</button>
+      </div>
+      <div class="current-information-today container">
+        <div class="current-information-today__date-today"></div>
+        <div class="current-information-today__sun-icons">
+          <img class="current-information-today__icon" src="./images/icons/sunrise-mb.png" alt="sunrise-icons"
+            width="25px">
+          <div class="current-information-today__value-sunrise"></div>
+          <img class="current-information-today__icon current-information-today__icon--effect"
+            src="./images/icons/sunset-mb.png" alt="sunrise-icons" width="25px">
+          <div class="current-information-today__value-sunset"></div>
+        </div>
+      </div>
+      <div class="quotes container">
+        <span class="quotes__symbol">&#10078</span>
+        <blockquote class="quotes__box">
+          <p class="quotes__text"></p>
+          <cite class="quotes__author"></cite>
+        </blockquote>
+      </div>
+      <div class="current-information-five-days container display-none-js">
+        <div class="current-information-five-days__name-box"></div>
+        <div class="current-information-five-days__main-weather-five-days">
+          <ul class="current-information-five-days__list-days"></ul>
+          <div class="current-information-five-days__btn-box">
+            <button class="current-information-five-days__btn-prev">&#60</button>
+            <button class="current-information-five-days__btn-next">&#62</button>
+          </div>
+        </div>
+
+        <div class="current-information-five-days__temperature-range display-none-js">
+          <button class="current-information-five-days__btn-box-close">X</button>
+          <ul class="current-information-five-days__list-temperature"></ul>
+          <div class="current-information-five-days__temperature-btn-box">
+            <button class="current-information-five-days__temperature-btn-tempr-prev">
+              &#60</button> <button class="current-information-five-days__temperature-btn-tempr-next">&#62
+            </button>
+          </div>
+        </div>
+      </div>
+      <button class="current-information-five-days__chart-btn container display-none-js"><a
+          class="current-information-five-days__chart-btn-link display-none-js" href="#">Show Chart</a>
+      </button>
+      <div class="current-information-five-days__chart container">
+        <div class="current-information-five-days__chart-canvas display-none-js">
+          <canvas id="myChart" class="chart-canvas"></canvas>
+        </div>
+      </div>
+  </div>
+  </section>
+  </div>
+</body>
+
+</html>

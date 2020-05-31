@@ -1,0 +1,280 @@
+.current-temperature-today,
+.current-information-today {
+  @extend %box-inform-style;
+}
+
+.current-temperature-today {
+  color: $primary-color-text;
+  line-height: 22px;
+  @extend %paddings-box;
+  margin-top: 90px;
+
+  &__icon {
+    display: block;
+    @extend %margin-center;
+  }
+
+  &__name {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  &__value {
+    font-size: 18px;
+    line-height: 17px;
+  }
+
+  &__main-tempr {
+    font-size: 45px;
+    line-height: 1;
+    font-weight: 300;
+
+    &::before {
+      content: '';
+      width: 1px;
+      height: 20px;
+      position: absolute;
+      background-color: $primary-color-input;
+      opacity: 0.102;
+      width: 1px;
+      height: 32px;
+      left: 128px;
+      top: 24px;
+
+      @media only screen and (min-width: 768px) {
+        left: 192px;
+        top: 132px;
+      }
+    }
+
+    @media only screen and (min-width: 768px) {
+      font-size: 90px;
+      width: 100%;
+      text-align: center;
+    }
+
+  }
+
+  &__min-tempr {
+    @media only screen and (min-width: 768px) {
+      width: 50%;
+      text-align: end;
+      padding: 20px;
+    }
+  }
+
+  &__max-tempr {
+    @media only screen and (min-width: 768px) {
+      width: 50%;
+      text-align: start;
+      padding: 20px;
+    }
+  }
+
+  &__main-tempr,
+  &__value {
+    color: $primary-color-input;
+  }
+
+  &__country-name {
+    font-size: 16px;
+    text-align: center;
+    font-weight: 400;
+
+    @media only screen and (min-width: 768px) {
+      font-size: 18px;
+    }
+  }
+
+  &__tempr {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 15px;
+    position: relative;
+
+    @media only screen and (min-width: 768px) {
+      flex-wrap: wrap;
+    }
+  }
+
+  @media only screen and (min-width: 768px) {
+    background-color: $primary-color-box-tab;
+    height: 300px;
+    width: 492px;
+    color: $primary-color-text-tab;
+    margin-top: 145px;
+  }
+
+  @media only screen and (min-width: 1280px) {
+    margin-top: 132px;
+    margin-right: 0px;
+  }
+}
+
+.current-information-today {
+  @extend %paddings-box;
+
+  &__date {
+    display: flex;
+    justify-content: space-between;
+
+    @media only screen and (min-width: 768px) {
+      justify-content: center;
+      font-size: 23px;
+    }
+
+    @media only screen and (min-width: 1280px) {
+      justify-content: left;
+    }
+  }
+
+  &__day-number,
+  &__day-name {
+    font-size: 45px;
+    color: $primary-color-text-white;
+    line-height: 1;
+    font-weight: 300;
+
+    @media only screen and (min-width: 768px) {
+      font-size: 90px;
+      margin: 2px;
+    }
+  }
+
+  &__day-number {
+    & sup {
+      font-size: 14px;
+      position: relative;
+      top: -25px;
+
+      @media only screen and (min-width: 768px) {
+        font-size: 23px;
+        top: -45px;
+      }
+    }
+  }
+
+  &__month-time {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-around;
+    font-size: 14px;
+    padding-bottom: 15px;
+    padding-top: 5px;
+    color: $primary-color-text-white;
+
+    &::before {
+      @extend %before-element-effect;
+
+      @media only screen and (min-width: 768px) {
+        left: 384px;
+        top: 803px
+      }
+
+      @media only screen and (min-width: 1280px) {
+        left: 108px;
+        top: 785px
+      }
+    }
+
+    @media only screen and (min-width: 768px) {
+      font-size: 18px;
+      width: 210px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media only screen and (min-width: 1280px) {
+      display: inline-block;
+      width: 192px;
+    }
+  }
+
+  &__name-month {
+    @media only screen and (min-width: 768px) {
+      margin: 5px;
+    }
+
+    @media only screen and (min-width: 1280px) {
+      width: 90px;
+    }
+  }
+
+  &__current-time {
+    @media only screen and (min-width: 768px) {
+      margin: 5px;
+      padding-left: 10px;
+    }
+  }
+
+  &__sun-icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-end;
+    font-size: 14px;
+    color: $primary-color-text-white;
+    position: relative;
+
+    @media only screen and (min-width: 768px) {
+      justify-content: center;
+    }
+
+    @media only screen and (min-width: 1280px) {
+      position: relative;
+      transform: translate(35px, -50px);
+    }
+  }
+
+  &__value-sunrise {
+    &::before {
+      @extend %before-element-effect;
+      left: 84.5px;
+
+      @media only screen and (min-width: 768px) {
+        left: 191.5px;
+      }
+
+      @media only screen and (min-width: 1280px) {
+        left: 245px;
+        top: 14px;
+      }
+    }
+
+    @media only screen and (min-width: 768px) {
+      margin-left: 5px;
+      margin-right: 15px;
+    }
+
+    @media only screen and (min-width: 1280px) {
+      display: inline-block;
+    }
+  }
+
+  &__value-sunset {
+    @media only screen and (min-width: 768px) {
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+  }
+
+  &__icon {
+    @media only screen and (min-width: 768px) {
+      margin-left: 5px;
+      margin-right: 15px;
+    }
+  }
+
+  @media only screen and (min-width: 768px) {
+    width: 492px;
+    height: 279px;
+  }
+
+  @media only screen and (min-width: 1280px) {
+    width: 600px;
+    height: 279px;
+    margin-left: 0px;
+    display: inline-block;
+    margin-bottom: 100px;
+  }
+}

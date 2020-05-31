@@ -1,0 +1,29 @@
+.buttons-box {
+  height: 92px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @media only screen and (min-width: 768px) {
+    justify-content: center;
+    height: 135px;
+  }
+  @media only screen and (min-width: 1280px) {
+    width: 492px;
+    margin-right: 0px;
+  }
+}
+.button {
+  width: 126px;
+  height: 29px;
+  border-radius: 25px 25px 25px 25px;
+  border: none;
+  background-color: $primary-color-white-opacity;
+  font-weight: bold;
+  outline: none;
+  @media only screen and (min-width: 768px) {
+    margin: 10px;
+  }
+}
+.click-btn-js {
+  background-color: $primary-color-input;
+}
