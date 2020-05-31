@@ -20,6 +20,7 @@ let cityName;
 
 const refs = {
   mainInput: document.querySelector ('.input-box__input'),
+  mainInputForm: document.querySelector ('.input-box'),
   body: document.querySelector ('body'),
   oneDayTempr: document.querySelector ('.current-temperature-today'),
   currentInformationDayDate: document.querySelector (
@@ -88,7 +89,7 @@ renderCurrentTime ();
 
 renderQuotes (guotesArr);
 
-refs.mainInput.addEventListener ('submit', handlerMainInputSearch);
+refs.mainInputForm.addEventListener ('submit', handlerMainInputSearch);
 
 refs.btnFiveDays.addEventListener ('click', handlerBtnOfFiveDays);
 
@@ -681,10 +682,9 @@ async function getWeatherFiveDays (cityName, key) {
 
 function handlerMainInputSearch (event) {
   event.preventDefault ();
-  cityName = event.target.value;
+  cityName = event.target[0].value;
   getDefaultStyle ();
-  cityName = event.target.value;
-  event.target.value = cityName[0].toUpperCase () + cityName.slice (1);
+  event.target[0].value = cityName[0].toUpperCase () + cityName.slice (1);
   renderWeather (cityName, key);
   getNewBackground ();
 }
