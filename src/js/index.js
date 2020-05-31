@@ -88,7 +88,7 @@ renderCurrentTime ();
 
 renderQuotes (guotesArr);
 
-refs.mainInput.addEventListener ('keydown', handlerMainInputSearch);
+refs.mainInput.addEventListener ('submit', handlerMainInputSearch);
 
 refs.btnFiveDays.addEventListener ('click', handlerBtnOfFiveDays);
 
@@ -153,16 +153,16 @@ function handlerClickOfBtnListTemprRangePrev (event) {
     return;
   } else {
     if (listOfVisibleItems[0].previousElementSibling === null) {
-    return;
-  } else {
-    let count = 0;
-    listOfVisibleItems.forEach (item => {
-      count = count + 130;
-      item.style.transform = `translateX(${count}px)`;
-    });
-    listOfVisibleItems[0].previousElementSibling.classList.add ('visible-js');
-    listOfVisibleItems[0].style.transform = 'translateX(0px)';
-  }
+      return;
+    } else {
+      let count = 0;
+      listOfVisibleItems.forEach (item => {
+        count = count + 130;
+        item.style.transform = `translateX(${count}px)`;
+      });
+      listOfVisibleItems[0].previousElementSibling.classList.add ('visible-js');
+      listOfVisibleItems[0].style.transform = 'translateX(0px)';
+    }
   }
 }
 
@@ -170,7 +170,7 @@ function handlerClickOfBtnListTemprRangeNext (event) {
   refs.btnOfListTemprRangePrev.addEventListener (
     'click',
     handlerClickOfBtnListTemprRangePrev
-  ); 
+  );
   const listOfItemsTemprRange = refs.listFiveDaysTemprRange.querySelectorAll (
     'li'
   );
@@ -680,27 +680,14 @@ async function getWeatherFiveDays (cityName, key) {
 }
 
 function handlerMainInputSearch (event) {
+  event.preventDefault ();
   cityName = event.target.value;
-  if (event.code === '13' ) {
-    event.preventDefault ();
-    getDefaultStyle ();
-    cityName = event.target.value;
-    event.target.value = cityName[0].toUpperCase () + cityName.slice (1);
-    renderWeather (cityName, key);
-    getNewBackground ();
-  }
+  getDefaultStyle ();
+  cityName = event.target.value;
+  event.target.value = cityName[0].toUpperCase () + cityName.slice (1);
+  renderWeather (cityName, key);
+  getNewBackground ();
 }
-
-// function handlerMainInputSearchTouch (event) {
-//   console.log(event);
-//   cityName = event.target.value;
-//     event.preventDefault ();
-//     getDefaultStyle ();
-//     cityName = event.target.value;
-//     event.target.value = cityName[0].toUpperCase () + cityName.slice (1);
-//     renderWeather (cityName, key);
-//     getNewBackground ();
-// }
 
 function getDefaultStyle () {
   refs.btnOneDays.classList.add ('click-btn-js');
