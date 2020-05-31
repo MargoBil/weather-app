@@ -655,7 +655,7 @@ function renderWeather (cityName, key) {
 async function getWeather (cityName, key) {
   try {
     const response = await fetch (
-      `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${key}&lang=	ua`
+      `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${key}&lang=	ua`
     );
     if (response.ok) {
       const data = await response.json ();
