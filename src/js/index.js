@@ -688,7 +688,20 @@ function handlerMainInputSearch (event) {
     event.target.value = cityName[0].toUpperCase () + cityName.slice (1);
     renderWeather (cityName, key);
     getNewBackground ();
+  } else {
+    refs.mainInput.addEventListener('touchstart', handlerMainInputSearchTouch);
   }
+}
+
+function handlerMainInputSearchTouch (event) {
+  console.log(event);
+  cityName = event.target.value;
+    event.preventDefault ();
+    getDefaultStyle ();
+    cityName = event.target.value;
+    event.target.value = cityName[0].toUpperCase () + cityName.slice (1);
+    renderWeather (cityName, key);
+    getNewBackground ();
 }
 
 function getDefaultStyle () {
