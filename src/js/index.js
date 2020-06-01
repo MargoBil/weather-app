@@ -1,4 +1,5 @@
 import '../styles/styles.scss';
+import './../../node_modules/preloader-js/assets/css/preloader.css';
 import Chart from 'chart.js';
 import generatorBackgroundPictures
   from './background-pictures/make-background-pictures';
@@ -14,6 +15,12 @@ import monthShort from './../data/monthShort';
 import arrWeekDay from './../data/week';
 import days from './../data/week-day';
 import guotesArr from './../data/quotes';
+import preloader from './../../node_modules/preloader-js/preloader';
+const preloaderBox = document.querySelector('.preloader');
+preloaderBox.style.backgroundColor = '#808080';
+console.log(preloaderBox);
+
+preloader.show();
 
 const key = '2647a458f645f572ecd71117c7dde2a8';
 let cityName;
@@ -649,6 +656,8 @@ function renderWeather (cityName, key) {
       const markupSunset = sunset (obj);
       refs.currentInformationSunrise.innerHTML = markupSunrise;
       refs.currentInformationSunset.innerHTML = markupSunset;
+    }).finally(()=>{
+      setTimeout(() => preloader.hide(), 2000)
     });
 }
 
@@ -682,6 +691,7 @@ async function getWeatherFiveDays (cityName, key) {
 
 function handlerMainInputSearch (event) {
   event.preventDefault ();
+  preloader.show();
   cityName = event.target[0].value;
   getDefaultStyle ();
   event.target[0].value = cityName[0].toUpperCase () + cityName.slice (1);

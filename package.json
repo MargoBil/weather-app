@@ -53,6 +53,7 @@
     "core-js": "^3.6.4",
     "handlebars": "^4.7.3",
     "loading-visualization": "^1.2.13",
-    "moment": "^2.26.0"
+    "moment": "^2.26.0",
+    "preloader-js": "^1.0.1"
   }
 }
