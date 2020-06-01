@@ -154,6 +154,10 @@
     }
   }
 
+  &__date-today {
+    position: relative;
+  }
+
   &__month-time {
     margin-top: 15px;
     display: flex;
@@ -167,13 +171,13 @@
       @extend %before-element-effect;
 
       @media only screen and (min-width: 768px) {
-        left: 384px;
-        top: 803px
+        left: 190px;
+        top: 118px
       }
 
       @media only screen and (min-width: 1280px) {
-        left: 108px;
-        top: 785px
+        left: 50px;
+        top: 115px;
       }
     }
 
