@@ -16,12 +16,14 @@ import arrWeekDay from './../data/week';
 import days from './../data/week-day';
 import guotesArr from './../data/quotes';
 import preloader from './../../node_modules/preloader-js/preloader';
+import renderCurrentTime from './time/render-time';
+import weatherInfoFiveDays from './weather-five-days/create-weather-obj';
 
-const preloaderBox = document.querySelector('.preloader');
+const preloaderBox = document.querySelector ('.preloader');
 
 preloaderBox.style.backgroundColor = '#808080';
 
-preloader.show();
+preloader.show ();
 
 const key = '2647a458f645f572ecd71117c7dde2a8';
 let cityName;
@@ -93,7 +95,7 @@ getNewBackground ();
 
 renderWeather ('Киев', key);
 
-renderCurrentTime ();
+renderCurrentTime (month, days, currentTime, refs.currentInformationDayDate);
 
 renderQuotes (guotesArr);
 
@@ -318,207 +320,29 @@ function handlerBtnOfFiveDays (event) {
         });
         arrOfWeatherByTime.push (filteredDataByDate);
       }
-
-      const weatherInfoByEveryDay = {
-        nameCity: data.city.name,
-        country: data.city.country,
-        currentDay: arrOfWeatherByTime[0],
-        currentDayNameOfWeek: arrWeekDay[
-          new Date (Date.parse (arrOfWeatherByTime[0][0].dt_txt)).getDay ()
-        ],
-        currentDayIcon: arrOfWeatherByTime[0][0].weather[0].icon,
-        currentDayMinTempr: String (
-          Math.round (
-            Math.min (
-              ...arrOfWeatherByTime[0].map (item => {
-                return item.main.temp_min * 100;
-              })
-            ) / 100
-          )
-        ).padStart (2, '0'),
-        currentDayMaxTempr: String (
-          Math.round (
-            Math.max (
-              ...arrOfWeatherByTime[0].map (item => {
-                return item.main.temp_max * 100;
-              })
-            ) / 100
-          )
-        ).padStart (2, '0'),
-        currentDayNameOfMonth: month[
-          new Date (Date.parse (arrOfWeatherByTime[0][0].dt_txt)).getMonth ()
-        ],
-        currentDayNameOfDay: new Date (
-          Date.parse (arrOfWeatherByTime[0][0].dt_txt)
-        ).getDate (),
-        dayOne: arrOfWeatherByTime[1],
-        dayOneNameOfWeek: arrWeekDay[
-          new Date (Date.parse (arrOfWeatherByTime[1][0].dt_txt)).getDay ()
-        ],
-        dayOneIcon: arrOfWeatherByTime[1][0].weather[0].icon,
-        dayOneMinTempr: String (
-          Math.round (
-            Math.min (
-              ...arrOfWeatherByTime[1].map (item => {
-                return item.main.temp_min * 100;
-              })
-            ) / 100
-          )
-        ).padStart (2, '0'),
-        dayOneMaxTempr: String (
-          Math.round (
-            Math.max (
-              ...arrOfWeatherByTime[1].map (item => {
-                return item.main.temp_max * 100;
-              })
-            ) / 100
-          )
-        ).padStart (2, '0'),
-        dayOneNameOfMonth: month[
-          new Date (Date.parse (arrOfWeatherByTime[1][0].dt_txt)).getMonth ()
-        ],
-        dayOneNameOfDay: new Date (
-          Date.parse (arrOfWeatherByTime[1][0].dt_txt)
-        ).getDate (),
-        dayTwo: arrOfWeatherByTime[2],
-        dayTwoNameOfWeek: arrWeekDay[
-          new Date (Date.parse (arrOfWeatherByTime[2][0].dt_txt)).getDay ()
-        ],
-        dayTwoIcon: arrOfWeatherByTime[2][0].weather[0].icon,
-        dayTwoMinTempr: String (
-          Math.round (
-            Math.min (
-              ...arrOfWeatherByTime[2].map (item => {
-                return item.main.temp_min * 100;
-              })
-            ) / 100
-          )
-        ).padStart (2, '0'),
-        dayTwoMaxTempr: String (
-          Math.round (
-            Math.max (
-              ...arrOfWeatherByTime[2].map (item => {
-                return item.main.temp_max * 100;
-              })
-            ) / 100
-          )
-        ).padStart (2, '0'),
-        dayTwoNameOfMonth: month[
-          new Date (Date.parse (arrOfWeatherByTime[2][0].dt_txt)).getMonth ()
-        ],
-        dayTwoNameOfDay: new Date (
-          Date.parse (arrOfWeatherByTime[2][0].dt_txt)
-        ).getDate (),
-        dayThree: arrOfWeatherByTime[3],
-        dayThreeNameOfWeek: arrWeekDay[
-          new Date (Date.parse (arrOfWeatherByTime[3][0].dt_txt)).getDay ()
-        ],
-        dayThreeIcon: arrOfWeatherByTime[3][0].weather[0].icon,
-        dayThreeMinTempr: String (
-          Math.round (
-            Math.min (
-              ...arrOfWeatherByTime[3].map (item => {
-                return item.main.temp_min * 100;
-              })
-            ) / 100
-          )
-        ).padStart (2, '0'),
-        dayThreeMaxTempr: String (
-          Math.round (
-            Math.max (
-              ...arrOfWeatherByTime[3].map (item => {
-                return item.main.temp_max * 100;
-              })
-            ) / 100
-          )
-        ).padStart (2, '0'),
-        dayThreeNameOfMonth: month[
-          new Date (Date.parse (arrOfWeatherByTime[3][0].dt_txt)).getMonth ()
-        ],
-        dayThreeNameOfDay: new Date (
-          Date.parse (arrOfWeatherByTime[3][0].dt_txt)
-        ).getDate (),
-        dayFour: arrOfWeatherByTime[4],
-        dayFourNameOfWeek: arrWeekDay[
-          new Date (Date.parse (arrOfWeatherByTime[4][0].dt_txt)).getDay ()
-        ],
-        dayFourIcon: arrOfWeatherByTime[4][0].weather[0].icon,
-        dayFourMinTempr: String (
-          Math.round (
-            Math.min (
-              ...arrOfWeatherByTime[4].map (item => {
-                return item.main.temp_min * 100;
-              })
-            ) / 100
-          )
-        ).padStart (2, '0'),
-        dayFourMaxTempr: String (
-          Math.round (
-            Math.max (
-              ...arrOfWeatherByTime[4].map (item => {
-                return item.main.temp_max * 100;
-              })
-            ) / 100
-          )
-        ).padStart (2, '0'),
-        dayFourNameOfMonth: month[
-          new Date (Date.parse (arrOfWeatherByTime[4][0].dt_txt)).getMonth ()
-        ],
-        dayFourNameOfDay: new Date (
-          Date.parse (arrOfWeatherByTime[4][0].dt_txt)
-        ).getDate (),
-        dayFive: arrOfWeatherByTime[5],
-        dayFiveNameOfWeek: arrWeekDay[
-          new Date (Date.parse (arrOfWeatherByTime[5][0].dt_txt)).getDay ()
-        ],
-        dayFiveIcon: arrOfWeatherByTime[5][0].weather[0].icon,
-        dayFiveMinTempr: String (
-          Math.round (
-            Math.min (
-              ...arrOfWeatherByTime[5].map (item => {
-                return item.main.temp_min * 100;
-              })
-            ) / 100
-          )
-        ).padStart (2, '0'),
-        dayFiveMaxTempr: String (
-          Math.round (
-            Math.max (
-              ...arrOfWeatherByTime[5].map (item => {
-                return item.main.temp_max * 100;
-              })
-            ) / 100
-          )
-        ).padStart (2, '0'),
-        dayFiveNameOfMonth: month[
-          new Date (Date.parse (arrOfWeatherByTime[5][0].dt_txt)).getMonth ()
-        ],
-        dayFiveNameOfDay: new Date (
-          Date.parse (arrOfWeatherByTime[5][0].dt_txt)
-        ).getDate (),
-      };
-
+      const weatherInfoByEveryDay = weatherInfoFiveDays (
+        data,
+        arrOfWeatherByTime,
+        arrWeekDay,
+        month
+      );
       const markupFiveDays = itemWeatherByFiveDays (weatherInfoByEveryDay);
       const nameOfBoxFiveDays = boxOfFiveDaysName (weatherInfoByEveryDay);
       refs.listOfWeatherFiveDays.innerHTML = markupFiveDays;
       refs.nameBoxFiveDays.innerHTML = nameOfBoxFiveDays;
-
       const arrOfTemprForChart = [];
       const arrOfHumidityForChart = [];
       const arrOfWindSpeedForChart = [];
       const arrOfPressureForChart = [];
       const arrOfDateForChart = [];
-
       const arrOfDate = filteredListOfDays.map (item => {
         return item.split ('-');
       });
-
       arrOfDate.forEach (item => {
         const monthChart = monthShort[Number (item[1]) - 1];
         const arrOfMonthName = `${monthChart} ${item[2]}, ${item[0]}`;
         arrOfDateForChart.push (arrOfMonthName);
       });
-
       arrOfWeatherByTime.forEach (items => {
         const temprForChart = items.reduce ((acc, item) => {
           const sum = acc + item.main.temp;
@@ -526,28 +350,24 @@ function handlerBtnOfFiveDays (event) {
         }, 0);
         arrOfTemprForChart.push (Math.round (temprForChart / items.length));
       });
-
       arrOfWeatherByTime.forEach (items => {
         const sum = items.reduce ((acc, item) => {
           return acc + item.main.humidity;
         }, 0);
         arrOfHumidityForChart.push (Math.round (sum / items.length));
       });
-
       arrOfWeatherByTime.forEach (items => {
         const sum = items.reduce ((acc, item) => {
           return acc + item.wind.speed;
         }, 0);
         arrOfWindSpeedForChart.push (Math.round (sum / items.length));
       });
-
       arrOfWeatherByTime.forEach (items => {
         const sum = items.reduce ((acc, item) => {
           return acc + item.main.pressure;
         }, 0);
         arrOfPressureForChart.push (Math.round (sum / items.length));
       });
-
       const myLineChart = new Chart (refs.ctx, {
         type: 'line',
         data: {
@@ -657,8 +477,9 @@ function renderWeather (cityName, key) {
       const markupSunset = sunset (obj);
       refs.currentInformationSunrise.innerHTML = markupSunrise;
       refs.currentInformationSunset.innerHTML = markupSunset;
-    }).finally(()=>{
-      setTimeout(() => preloader.hide(), 1000)
+    })
+    .finally (() => {
+      setTimeout (() => preloader.hide (), 1000);
     });
 }
 
@@ -692,7 +513,7 @@ async function getWeatherFiveDays (cityName, key) {
 
 function handlerMainInputSearch (event) {
   event.preventDefault ();
-  preloader.show();
+  preloader.show ();
   cityName = event.target[0].value;
   getDefaultStyle ();
   event.target[0].value = cityName[0].toUpperCase () + cityName.slice (1);
@@ -720,20 +541,4 @@ function getNewBackground () {
       refs.body.style.backgroundImage = `url('${data.hits[idx].largeImageURL}')`;
     })
     .catch (error => error);
-}
-
-function renderCurrentTime () {
-  setInterval (() => {
-    const date = new Date ();
-    const currentDate = {
-      dateMonth: date.getDate (),
-      nameMonth: month[date.getMonth ()],
-      numberWeek: days[date.getDay ()],
-      hours: String (date.getHours ()).padStart (2, '0'),
-      minutes: String (date.getMinutes ()).padStart (2, '0'),
-      seconds: String (date.getSeconds ()).padStart (2, '0'),
-    };
-    const markupCurrentTime = currentTime (currentDate);
-    refs.currentInformationDayDate.innerHTML = markupCurrentTime;
-  }, 1000);
 }
