@@ -16,9 +16,10 @@ import arrWeekDay from './../data/week';
 import days from './../data/week-day';
 import guotesArr from './../data/quotes';
 import preloader from './../../node_modules/preloader-js/preloader';
+
 const preloaderBox = document.querySelector('.preloader');
+
 preloaderBox.style.backgroundColor = '#808080';
-console.log(preloaderBox);
 
 preloader.show();
 
@@ -657,7 +658,7 @@ function renderWeather (cityName, key) {
       refs.currentInformationSunrise.innerHTML = markupSunrise;
       refs.currentInformationSunset.innerHTML = markupSunset;
     }).finally(()=>{
-      setTimeout(() => preloader.hide(), 2000)
+      setTimeout(() => preloader.hide(), 1000)
     });
 }
 
